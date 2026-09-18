@@ -6,7 +6,7 @@ import Link from 'next/link';
 const Navbar = () => {
 
     const link = <>
-        <Link href={"/home"}><li>Home</li></Link>
+        <Link href={"/"}><li>Home</li></Link>
         <Link href={"/Popular"}><li>Popular Movies</li></Link>
         <Link href={"/all-movies"}><li>All Movies</li></Link>
         <Link href={"/contact"}><li>Contact</li></Link>
@@ -14,8 +14,8 @@ const Navbar = () => {
 
 
     return (
-        <div className='border-b border-white/20 bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 sticky top-0 z-50 backdrop-blur-md'>
-            <nav className='flex justify-between items-center gap-4 w-[90%] max-w-7xl mx-auto py-4'>
+        <div className='border-b border-white/20 bg-linear-to-r from-slate-900 via-slate-800 to-slate-900 sticky top-0 z-50 backdrop-blur-md'>
+            <nav className='flex justify-between items-center gap-4 w-[90%] mx-auto py-4'>
 
                 {/* Logo */}
                 <div className='flex items-center'>

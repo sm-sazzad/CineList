@@ -8,7 +8,7 @@ export interface IMovieProps {
     movie: IMovie;
 }
 
-const MovieCard = ({ movie }: IMovieProps) => {
+const PopularMovieCard = ({ movie }: IMovieProps) => {
     const movieName = movie.title.toLowerCase().replace(/\s+/g, "-").replace(/[^\w-]/g, "");
     console.log(movieName)
     return (
@@ -42,7 +42,7 @@ const MovieCard = ({ movie }: IMovieProps) => {
 
                     <div className='flex justify-between items-center text-xs text-stone-400'>
                         <p>{movie.release_date}</p>
-                        <button className='hover:text-red-500 transition-colors'>
+                        <button className='hover:text-red-500 cursor-pointer transition-colors'>
                             <MdFavorite className='text-xl' />
                         </button>
                     </div>
@@ -52,4 +52,4 @@ const MovieCard = ({ movie }: IMovieProps) => {
     );
 };
 
-export default MovieCard;
+export default PopularMovieCard;
