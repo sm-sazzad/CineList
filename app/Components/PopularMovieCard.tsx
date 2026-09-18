@@ -10,7 +10,7 @@ export interface IMovieProps {
 
 const PopularMovieCard = ({ movie }: IMovieProps) => {
     const movieName = movie.title.toLowerCase().replace(/\s+/g, "-").replace(/[^\w-]/g, "");
-    console.log(movieName)
+    // console.log(movieName)
     return (
         <Link href={`/movie/${movie.id}-${movieName}`}>
             <div className='shadow-md shadow-stone-800/50 bg-stone-900 text-white rounded-2xl cursor-pointer overflow-hidden transition-transform duration-300 hover:scale-105 hover:shadow-xl'>
@@ -23,7 +23,7 @@ const PopularMovieCard = ({ movie }: IMovieProps) => {
                         height={450}
                     />
 
-                    {movie.adult === false && (
+                    {movie.adult === true && (
                         <span className='absolute top-2 right-2 bg-red-600/80 backdrop-blur-sm text-white text-xs font-semibold px-2 py-1 rounded-full ring-1 ring-red-400/50 shadow-md'>
                             Adult
                         </span>

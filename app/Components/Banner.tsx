@@ -11,8 +11,8 @@ const Banner = () => {
             <div className="hero-overlay"></div>
             <div className="hero-content text-neutral-content text-center">
                 <div className="max-w-md">
-                    <h1 className="mb-5 text-5xl font-bold">Wellcome</h1>
-                    <p className="mb-5">
+                    <h1 className="mb-5 text-6xl font-extrabold">Wellcome</h1>
+                    <p className="mb-5 text-3xl">
                         Millions of movies, TV shows and people to discover. Explore now.
                     </p>
                     <button className="btn btn-primary">Get Started</button>

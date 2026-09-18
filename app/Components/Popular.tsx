@@ -5,9 +5,9 @@ import PopularMovieCard from './PopularMovieCard';
 const Popular = async () => {
     const movies = await getMovies();
     return (
-        <div className='relative py-20'>
+        <div className='relative py-20 w-[90%] mx-auto'>
             {/* Section Header */}
-            <div className='w-[90%] mx-auto mb-12'>
+            <div className=' mb-12'>
                 <div className='flex items-end justify-between flex-wrap gap-4'>
                     <div>
                         <div className='flex items-center gap-3 mb-2'>
@@ -35,7 +35,7 @@ const Popular = async () => {
             </div>
 
             {/* Movies Grid */}
-            <main className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 md:gap-6 w-[90%] mx-auto">
+            <main className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6 mx-auto">
                 {movies.map((movie) => (
                     <PopularMovieCard key={movie.id} movie={movie} />
                 ))}

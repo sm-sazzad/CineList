@@ -2,6 +2,8 @@ import { IMovie } from "./DataType";
 import MovieCard from "./Components/PopularMovieCard";
 import Banner from "./Components/Banner";
 import Popular from "./Components/Popular";
+import TrendingMovies from "./Components/TrendingMovies";
+import Movies from "./Components/Movies";
 
 export const getMovies = async (): Promise<IMovie[]> => {
   const res = await fetch("https://api.themoviedb.org/3/movie/popular", {
@@ -25,6 +27,8 @@ export default async function Home() {
     <div className="flex flex-col items-center justify-center bg-zinc-50 font-sans dark:bg-black">
       <Banner />
       <Popular />
+      <TrendingMovies />
+      <Movies />
 
     </div>
   );
