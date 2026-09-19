@@ -1,5 +1,7 @@
 import React from 'react';
 import { IMovie } from '../DataType';
+import { MdOutlineFavorite } from 'react-icons/md';
+import { FaBookmark, FaPlay, FaShare } from 'react-icons/fa';
 
 interface IMoviePropss {
     movie: IMovie;
@@ -8,184 +10,186 @@ interface IMoviePropss {
 const SeledtedMovieCard = ({ movie }: IMoviePropss) => {
     const newLocal = "absolute inset-0 bg-gradient-to-t from-[#0f172a] via-[#0f172a]/60 to-transparent";
     return (
-        <div className="min-h-screen bg-[#0f172a] text-white">
-            {/* Backdrop */}
-            <div className="relative">
-                <img
-                    src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
-                    alt={movie.title}
-                    className="h-112.5 w-full object-cover opacity-40"
-                />
+        <div className="min-h-screen bg-[#0d253f] text-white">
 
-                {/* Overlay */}
-                <div className={newLocal} />
+            {/* ================= BACKDROP ================= */}
+            <div className="relative h-105 w-full">
+                <div className="absolute inset-0 overflow-hidden">
+                    <img
+                        src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
+                        alt={movie.title}
+                        className="h-full w-full object-cover object-top"
+                    />
+                    {/* Single clean gradient (TMDB style) */}
+                    <div className="absolute inset-0 bg-linear-to-r from-[#0d253f] via-[#0d253f]/85 to-[#0d253f]/60"></div>
+                    <div className="absolute inset-0 bg-linear-to-t from-[#0d253f] via-transparent to-transparent"></div>
+                </div>
             </div>
 
-            {/* Movie Details */}
-            <div className="relative mx-auto -mt-64 max-w-6xl px-6 pb-16">
-                <div className="flex flex-col gap-8 md:flex-row">
+            {/* ================= CONTENT ================= */}
+            <div className="relative mx-auto max-w-7xl px-6 -mt-64 pb-20">
+                <div className="flex flex-col md:flex-row gap-10">
 
-                    {/* Poster */}
-                    <div className="shrink-0">
+                    {/* ---------- LEFT: POSTER ---------- */}
+                    <div className="shrink-0 mx-auto md:mx-0">
                         <img
                             src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                             alt={movie.title}
-                            className="w-100 rounded-xl shadow-2xl"
+                            className="w-75 rounded-lg shadow-2xl"
                         />
                     </div>
 
-                    {/* Information */}
-                    <div className="flex-1 pt-1">
-                        {/* Title */}
-                        <h1 className="text-4xl font-bold md:text-5xl">
-                            {movie.title}
-                        </h1>
+                    {/* ---------- RIGHT: INFO ---------- */}
+                    <div className="flex-1">
 
-                        {/* Original Title */}
-                        {movie.original_title !== movie.title && (
-                            <p className="mt-2 text-gray-400">
-                                Original title: {movie.original_title}
-                            </p>
-                        )}
-
-                        {/* Release date + language */}
-                        <div className="mt-5 flex flex-wrap gap-3 text-sm text-gray-300">
-                            <span className="rounded-full bg-white/10 px-4 py-2">
-                                📅 {movie.release_date}
-                            </span>
-
-                            <span className="rounded-full bg-white/10 px-4 py-2 uppercase">
-                                🌐 {movie.original_language}
-                            </span>
-
-                            <span className="rounded-full bg-white/10 px-4 py-2">
-                                👥 {movie.vote_count} votes
+                        {/* Title + Year */}
+                        <div className="flex flex-wrap items-baseline gap-3">
+                            <h1 className="text-3xl md:text-4xl font-bold">
+                                {movie.title}
+                            </h1>
+                            <span className="text-3xl md:text-4xl font-light text-gray-300">
+                                ({movie.release_date?.slice(0, 4)})
                             </span>
                         </div>
 
-                        {/* Rating */}
-                        <div className="mt-6 flex items-center gap-4">
-                            {(() => {
-                                const percentage = Math.round(
-                                    (movie.vote_average / 10) * 100
-                                );
+                        {/* Meta Row — TMDB style */}
+                        <div className="mt-3 flex flex-wrap items-center gap-3 text-sm">
+                            <span className="rounded border border-gray-500 px-2 py-0.5 text-gray-300">
+                                {movie.adult ? "R" : "PG-13"}
+                            </span>
+                            <span className="text-gray-300">
+                                {movie.release_date}
+                            </span>
+                            <span className="text-gray-500">•</span>
+                            <span className="text-gray-300 uppercase">
+                                {movie.original_language}
+                            </span>
+                            <span className="text-gray-500">•</span>
+                            <span className="text-gray-300">
+                                {movie.genres.map(g => g.name).join(", ")}
+                            </span>
+                            <span className="text-gray-500">•</span>
+                            <span className="text-gray-300">
+                                {Math.floor(movie.runtime / 60)}h {movie.runtime % 60}m
+                            </span>
+                        </div>
 
+                        {/* ---------- ACTIONS ROW (TMDB iconic) ---------- */}
+                        <div className="mt-8 flex items-center gap-6">
+
+                            {/* Score Ring — TMDB style */}
+                            {(() => {
+                                const percentage = Math.round(movie.vote_average * 10);
                                 return (
-                                    <div
-                                        className="flex h-20 w-20 items-center justify-center rounded-full"
-                                        style={{
-                                            background: `conic-gradient(
-                    #21d07a ${percentage}%,
-                    #1f2937 ${percentage}%
-                  )`,
-                                        }}
-                                    >
-                                        <div className="flex h-17 w-17 items-center justify-center rounded-full bg-[#0f172a]">
-                                            <span className="font-bold">
-                                                {percentage}%
-                                            </span>
+                                    <div className="flex items-center gap-3">
+                                        <div className="relative h-16 w-16">
+                                            <div
+                                                className="h-full w-full rounded-full"
+                                                style={{
+                                                    background: `conic-gradient(#ee162f ${percentage}%, #1a2f47 ${percentage}%)`,
+                                                }}
+                                            ></div>
+                                            <div className="absolute inset-1 flex items-center justify-center rounded-full bg-[#0d253f]">
+                                                <span className="text-lg font-bold">
+                                                    {percentage}
+                                                    <span className="text-xs">%</span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div className="text-sm font-semibold leading-tight">
+                                            <div>User</div>
+                                            <div>Score</div>
                                         </div>
                                     </div>
                                 );
                             })()}
 
-                            <div>
-                                <p className="font-bold">User Score</p>
-                                <p className="text-sm text-gray-400">
-                                    {movie.vote_average.toFixed(1)} / 10
-                                </p>
-                            </div>
-                        </div>
-
-                        {/* Overview */}
-                        <div className="mt-8">
-                            <h2 className="mb-3 text-2xl font-bold">
-                                Overview
-                            </h2>
-
-                            <p className="max-w-3xl leading-7 text-gray-300">
-                                {movie.overview || "No overview available."}
-                            </p>
-                        </div>
-
-                        {/* Genres */}
-                        <div className="mt-6">
-                            <h2 className="mb-3 text-xl font-bold">
-                                Genres
-                            </h2>
-
-                            <div className="flex flex-wrap gap-2">
-                                {movie.genre_ids.map((genreId) => (
-                                    <span
-                                        key={genreId}
-                                        className="rounded-full bg-indigo-500/20 px-4 py-2 text-sm text-indigo-300"
+                            {/* Action Icons — TMDB list style */}
+                            <div className="flex items-center gap-1">
+                                {[
+                                    { icon: <MdOutlineFavorite />, label: "Favorite" },
+                                    { icon: <FaBookmark />, label: "Watchlist" },
+                                    { icon: <FaPlay />, label: "Trailer" },
+                                    { icon: <FaShare />, label: "Share" },
+                                ].map((action, i) => (
+                                    <button
+                                        key={i}
+                                        title={action.label}
+                                        className="flex h-12 w-12 items-center justify-center rounded-full bg-[#0d253f] border border-white/10 text-white hover:bg-[#ee162f] hover:border-[#ee162f] transition-colors duration-200"
                                     >
-                                        Genre ID: {genreId}
-                                    </span>
+                                        {action.icon}
+                                    </button>
                                 ))}
                             </div>
                         </div>
 
-                        {/* More Information */}
-                        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                        {/* ---------- TAGLINE ---------- */}
+                        {movie.tagline && (
+                            <p className="mt-8 text-lg italic text-gray-400">
+                                {movie.tagline}
+                            </p>
+                        )}
 
-                            <div className="rounded-lg bg-white/5 p-4">
-                                <p className="text-sm text-gray-400">
-                                    Popularity
-                                </p>
-                                <p className="mt-1 text-lg font-semibold">
-                                    {movie.popularity.toFixed(2)}
-                                </p>
-                            </div>
-
-                            <div className="rounded-lg bg-white/5 p-4">
-                                <p className="text-sm text-gray-400">
-                                    Movie ID
-                                </p>
-                                <p className="mt-1 text-lg font-semibold">
-                                    {movie.id}
-                                </p>
-                            </div>
-
-                            <div className="rounded-lg bg-white/5 p-4">
-                                <p className="text-sm text-gray-400">
-                                    Adult
-                                </p>
-                                <p className="mt-1 text-lg font-semibold">
-                                    {movie.adult ? "Yes" : "No"}
-                                </p>
-                            </div>
-
-                            <div className="rounded-lg bg-white/5 p-4">
-                                <p className="text-sm text-gray-400">
-                                    Video
-                                </p>
-                                <p className="mt-1 text-lg font-semibold">
-                                    {movie.video ? "Available" : "No"}
-                                </p>
-                            </div>
-
-                            <div className="rounded-lg bg-white/5 p-4">
-                                <p className="text-sm text-gray-400">
-                                    Softcore
-                                </p>
-                                <p className="mt-1 text-lg font-semibold">
-                                    {movie.softcore ? "Yes" : "No"}
-                                </p>
-                            </div>
-
-                            <div className="rounded-lg bg-white/5 p-4">
-                                <p className="text-sm text-gray-400">
-                                    Backdrop
-                                </p>
-                                <p className="mt-1 truncate text-lg font-semibold">
-                                    {movie.backdrop_path}
-                                </p>
-                            </div>
-
+                        {/* ---------- OVERVIEW ---------- */}
+                        <div className="mt-6">
+                            <h2 className="text-xl font-semibold mb-2">Overview</h2>
+                            <p className="max-w-3xl text-gray-300 leading-relaxed">
+                                {movie.overview || "No overview available."}
+                            </p>
                         </div>
+
+                        {/* ---------- CREW (like TMDB) ---------- */}
+                        <div className="mt-8 grid grid-cols-2 md:grid-cols-3 gap-6">
+                            <div>
+                                <p className="font-semibold text-white">Director</p>
+                                <p className="text-gray-400 text-sm mt-1">
+                                    {"—"}
+                                </p>
+                            </div>
+                            <div>
+                                <p className="font-semibold text-white">Writer</p>
+                                <p className="text-gray-400 text-sm mt-1">
+                                    {"—"}
+                                </p>
+                            </div>
+                            <div>
+                                <p className="font-semibold text-white">Status</p>
+                                <p className="text-gray-400 text-sm mt-1">
+                                    {movie.status || "Released"}
+                                </p>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
+
+                {/* ================= STATS SECTION (TMDB style) ================= */}
+                <div className="mt-16 border-t border-white/10 pt-8">
+                    <h3 className="text-xl font-semibold mb-6">Details</h3>
+                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
+
+                        {[
+                            { label: "Popularity", value: movie.popularity?.toFixed(1) },
+                            { label: "Movie ID", value: movie.id },
+                            { label: "Votes", value: movie.vote_count?.toLocaleString() },
+                            { label: "Language", value: movie.original_language?.toUpperCase() },
+                            { label: "Release Date", value: movie.release_date },
+                            { label: "Runtime", value: `${movie.runtime} min` },
+                            { label: "Budget", value: movie.budget ? `$${movie.budget.toLocaleString()}` : "—" },
+                            { label: "Revenue", value: movie.revenue ? `$${movie.revenue.toLocaleString()}` : "—" },
+                        ].map((stat, i) => (
+                            <div key={i} className="border-l-2 border-[#ee162f]/40 pl-4">
+                                <p className="text-xs uppercase tracking-wider text-gray-500">
+                                    {stat.label}
+                                </p>
+                                <p className="mt-1 text-base font-semibold text-white">
+                                    {stat.value ?? "—"}
+                                </p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
             </div>
         </div>
     );
