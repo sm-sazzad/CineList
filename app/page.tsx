@@ -5,19 +5,6 @@ import Popular from "./Components/Popular";
 import TrendingMovies from "./Components/TrendingMovies";
 import Movies from "./Components/Movies";
 
-export const getMovies = async (): Promise<IMovie[]> => {
-  const res = await fetch("https://api.themoviedb.org/3/movie/popular", {
-    headers: {
-      Authorization: `Bearer ${process.env.TMDB_ACCESS_TOKEN}`,
-    },
-  });
-
-  const data = await res.json();
-
-  // console.log(data);
-
-  return data.results;
-};
 
 
 

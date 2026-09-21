@@ -1,9 +1,8 @@
-import React from 'react';
 import { IMovie } from '../DataType';
 import PopularMovieCard from './PopularMovieCard';
 
-const getMovies = async (): Promise<IMovie[]> => {
-    const res = await fetch(`https://api.themoviedb.org/3/discover/movie?page=3`,
+export const getMovies = async (page: number): Promise<IMovie[]> => {
+    const res = await fetch(`https://api.themoviedb.org/3/discover/movie?page=${page}`,
         {
             headers: {
                 Authorization: `Bearer ${process.env.TMDB_ACCESS_TOKEN}`,
@@ -17,8 +16,7 @@ const getMovies = async (): Promise<IMovie[]> => {
 
 const Movies = async () => {
 
-    const Movies = await getMovies();
-    console.log(Movies, "mobi");
+    const Movies = await getMovies(1);
 
     return (
         <div className='relative py-20 overflow-hidden'>

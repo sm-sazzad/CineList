@@ -2,9 +2,9 @@ import React, { use } from 'react';
 import PopularMovieCard from './PopularMovieCard';
 import { IMovie } from '../DataType';
 
-const getTrendingMovies = async (): Promise<IMovie[]> => {
+export const getTrendingMovies = async (day: string): Promise<IMovie[]> => {
     const res = await fetch(
-        "https://api.themoviedb.org/3/trending/movie/day",
+        `https://api.themoviedb.org/3/trending/movie/${day}`,
         {
             headers: {
                 Authorization: `Bearer ${process.env.TMDB_ACCESS_TOKEN}`,
@@ -18,7 +18,7 @@ const getTrendingMovies = async (): Promise<IMovie[]> => {
 
 
 const TrendingMovies = async () => {
-    const trendingMovies = await (getTrendingMovies());
+    const trendingMovies = await (getTrendingMovies("day"));
 
 
     return (

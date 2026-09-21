@@ -24,7 +24,7 @@ const DynamicPage = async ({ params }: { params: Promise<{ movie: string }> }) =
     // const movies = await getAllMovies();
 
     const movieId = movie.split("-")[0];
-    console.log(movieId)
+    // console.log(movieId)
     // const selectMovie = movies.find(n => n.id === JSON.parse(movieId))
     // console.log(selectMovie)
 
@@ -37,7 +37,6 @@ const DynamicPage = async ({ params }: { params: Promise<{ movie: string }> }) =
     );
     const data = await findMovie.json();
     const selectMovie = data;
-    console.log(data, "find")
 
 
     if (!selectMovie) {

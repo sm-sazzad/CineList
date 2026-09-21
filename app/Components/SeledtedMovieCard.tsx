@@ -1,7 +1,7 @@
 import React from 'react';
 import { IMovie } from '../DataType';
 import { MdOutlineFavorite } from 'react-icons/md';
-import { FaBookmark, FaPlay, FaShare } from 'react-icons/fa';
+import { FaBookmark, FaEnvelope, FaFacebook, FaGithub, FaLinkedin, FaPlay, FaShare } from 'react-icons/fa';
 
 interface IMoviePropss {
     movie: IMovie;
@@ -190,6 +190,134 @@ const SeledtedMovieCard = ({ movie }: IMoviePropss) => {
                     </div>
                 </div>
 
+            </div>
+
+
+            {/* ================= DEVELOPER IDENTITY ================= */}
+            <div className="mt-20 border-t border-white/10 pt-10">
+                <div className="w-[90%] mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
+
+                    {/* ---------- LEFT: IDENTITY ---------- */}
+                    <div className="flex items-center gap-4">
+                        {/* Avatar with gradient ring + online dot */}
+                        <div className="relative">
+                            <div className="h-16 w-16 rounded-full bg-linear-to-br from-[#16a34a] via-[#22c55e] to-[#4ade80] p-0.5 shadow-lg shadow-[#22c55e]/30">                                <img
+                                src="https://github.com/sm-sazzad.png"
+                                alt="SM Sazzad"
+                                className="h-full w-full rounded-full object-cover bg-[#0d253f]"
+                            />
+                            </div>
+                            {/* Online Indicator */}
+                            <span className="absolute bottom-0.5 right-0.5 flex h-4 w-4">
+                                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"></span>
+                                <span className="relative inline-flex h-4 w-4 rounded-full bg-emerald-500 border-2 border-[#0d253f]"></span>
+                            </span>
+                        </div>
+
+                        {/* Name + Role */}
+                        <div>
+                            <p className="text-[10px] uppercase tracking-[0.2em] text-gray-500 font-medium">
+                                Designed & Developed by
+                            </p>
+                            <h3 className="mt-1 text-lg font-bold text-white leading-tight">
+                                SM Sazzad
+                            </h3>
+                            <p className="text-sm text-gray-400 flex items-center gap-1.5">
+                                <span className="w-1.5 h-1.5 rounded-full bg-[#fc6743]"></span>
+                                Frontend Developer • Next.js & Tailwind
+                            </p>
+                        </div>
+                    </div>
+
+                    {/* ---------- RIGHT: SOCIAL LINKS ---------- */}
+                    <div className="flex items-center gap-2.5">
+
+                        {/* GitHub */}
+                        <a
+                            href="https://github.com/sm-sazzad"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            title="GitHub"
+                            className="group relative flex h-11 w-11 items-center justify-center rounded-full bg-white/5 border border-white/10 text-gray-300 overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-transparent hover:text-white hover:shadow-lg hover:shadow-black/40"
+                        >
+                            <span className="absolute inset-0 bg-linear-to-br from-[#333] to-[#171515] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                            <FaGithub className="relative text-lg" />
+                        </a>
+
+                        {/* LinkedIn */}
+                        <a
+                            href="https://www.linkedin.com/in/sm-sazzad/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            title="LinkedIn"
+                            className="group relative flex h-11 w-11 items-center justify-center rounded-full bg-white/5 border border-white/10 text-gray-300 overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-transparent hover:text-white hover:shadow-lg hover:shadow-[#0A66C2]/40"
+                        >
+                            <span className="absolute inset-0 bg-linear-to-br from-[#0A66C2] to-[#0077B5] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                            <FaLinkedin className="relative text-lg" />
+                        </a>
+
+                        {/* Facebook */}
+                        <a
+                            href="https://www.facebook.com/sazzad.hossain.5758/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            title="Facebook"
+                            className="group relative flex h-11 w-11 items-center justify-center rounded-full bg-white/5 border border-white/10 text-gray-300 overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-transparent hover:text-white hover:shadow-lg hover:shadow-[#1877F2]/40"
+                        >
+                            <span className="absolute inset-0 bg-linear-to-br from-[#1877F2] to-[#0C5DC7] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                            <FaFacebook className="relative text-lg" />
+                        </a>
+
+                        {/* Email (Gmail compose) */}
+                        <a
+                            href="https://mail.google.com/mail/?view=cm&fs=1&to=sazzadhossain5758@gmail.com"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            title="Send Email"
+                            className="group relative flex h-11 w-11 items-center justify-center rounded-full bg-white/5 border border-white/10 text-gray-300 overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-transparent hover:text-white hover:shadow-lg hover:shadow-[#EA4335]/40"
+                        >
+                            <span className="absolute inset-0 bg-linear-to-br from-[#EA4335] to-[#C5221F] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                            <FaEnvelope className="relative text-lg" />
+                        </a>
+
+                        {/* Divider */}
+                        <div className="hidden md:block h-8 w-px bg-white/10 mx-1"></div>
+
+                        {/* Primary CTA — Hire / Connect */}
+                        <a
+                            href="https://mail.google.com/mail/?view=cm&fs=1&to=sazzadhossain5758@gmail.com"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group relative hidden md:flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold text-white overflow-hidden transition-all duration-300 hover:-translate-y-1 shadow-lg shadow-[#ee162f]/20 hover:shadow-[#fc6743]/40"
+                        >
+                            <span className="absolute inset-0 bg-linear-to-r from-[#ee162f] via-[#fd3148] to-[#fc6743]"></span>
+                            <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-linear-to-r from-transparent via-white/30 to-transparent"></span>
+                            <span className="relative flex items-center gap-2">
+                                <svg className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l9 6 9-6M3 8v10a2 2 0 002 2h14a2 2 0 002-2V8M3 8a2 2 0 012-2h14a2 2 0 012 2" />
+                                </svg>
+                                Hire Me
+                            </span>
+                        </a>
+                    </div>
+                </div>
+
+                {/* ---------- FOOTER BOTTOM BAR ---------- */}
+                <div className="mt-10 pt-6 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-gray-500">
+                    <p>
+                        © {new Date().getFullYear()}{" "}
+                        <span className="text-gray-300 font-medium">SM Sazzad</span>. All rights reserved.
+                    </p>
+
+                    <p className="flex items-center gap-1.5">
+                        Built with
+                        <span className="text-white font-semibold">Next.js</span>
+                        <span className="text-gray-600">•</span>
+                        <span className="text-[#38bdf8] font-semibold">Tailwind CSS</span>
+                        <span className="text-gray-600">•</span>
+                        <span className="text-[#ee162f]">♥</span>
+                    </p>
+                </div>
             </div>
         </div>
     );

@@ -1,9 +1,21 @@
 import React from 'react';
-import { getMovies } from '../page';
 import PopularMovieCard from './PopularMovieCard';
+import { IMovie } from '../DataType';
+import Link from 'next/link';
+
+export const getMovies = async (page: number): Promise<IMovie[]> => {
+    const res = await fetch(`https://api.themoviedb.org/3/movie/popular?page=${page}`, {
+        headers: {
+            Authorization: `Bearer ${process.env.TMDB_ACCESS_TOKEN}`,
+        },
+    });
+
+    const data = await res.json();
+    return data.results;
+};
 
 const Popular = async () => {
-    const movies = await getMovies();
+    const movies = await getMovies(2);
     return (
         <div className='relative py-20 w-[90%] mx-auto'>
             {/* Section Header */}
@@ -43,11 +55,13 @@ const Popular = async () => {
 
             {/* Load More */}
             {movies.length > 0 && (
-                <div className='flex justify-center mt-14'>
-                    <button className='btn btn-wide bg-linear-to-r from-[#fd3148] to-[#fc6743] text-slate-900 border-none hover:from-yellow-300 hover:to-amber-400 font-semibold shadow-lg shadow-yellow-500/20 hover:shadow-yellow-500/40 transition-all duration-300'>
-                        Load More Movies
-                    </button>
-                </div>
+                <Link href={"/popular-movies"}>
+                    <div className='flex justify-center mt-14'>
+                        <button className='btn btn-wide bg-linear-to-r from-[#fd3148] to-[#fc6743] text-slate-900 border-none hover:from-yellow-300 hover:to-amber-400 font-semibold shadow-lg shadow-yellow-500/20 hover:shadow-yellow-500/40 transition-all duration-300'>
+                            Load More Movies
+                        </button>
+                    </div>
+                </Link>
             )}
         </div>
     );

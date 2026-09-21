@@ -13,8 +13,8 @@ const PopularMovieCard = ({ movie }: IMovieProps) => {
     // console.log(movieName)
     return (
         <Link href={`/movie/${movie.id}-${movieName}`}>
-            <div className='shadow-md shadow-stone-800/50 bg-stone-900 text-white rounded-2xl cursor-pointer overflow-hidden transition-transform duration-300 hover:scale-105 hover:shadow-xl'>
-                <div className='relative'>
+            <div className='flex flex-col h-full shadow-md shadow-stone-800/50 bg-stone-900 text-white rounded-2xl cursor-pointer overflow-hidden transition-transform duration-300 hover:scale-105 hover:shadow-xl'>
+                <div className='relative grow'>
                     <Image
                         className='w-full object-cover'
                         src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
