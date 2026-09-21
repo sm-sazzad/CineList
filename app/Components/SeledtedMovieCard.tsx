@@ -1,7 +1,6 @@
-import React from 'react';
 import { IMovie } from '../DataType';
-import { MdOutlineFavorite } from 'react-icons/md';
-import { FaBookmark, FaEnvelope, FaFacebook, FaGithub, FaLinkedin, FaPlay, FaShare } from 'react-icons/fa';
+import { FaEnvelope, FaFacebook, FaGithub, FaLinkedin } from 'react-icons/fa';
+import Btn from './favouriteBtn/Btn';
 
 interface IMoviePropss {
     movie: IMovie;
@@ -105,22 +104,7 @@ const SeledtedMovieCard = ({ movie }: IMoviePropss) => {
                             })()}
 
                             {/* Action Icons — TMDB list style */}
-                            <div className="flex items-center gap-1">
-                                {[
-                                    { icon: <MdOutlineFavorite />, label: "Favorite" },
-                                    { icon: <FaBookmark />, label: "Watchlist" },
-                                    { icon: <FaPlay />, label: "Trailer" },
-                                    { icon: <FaShare />, label: "Share" },
-                                ].map((action, i) => (
-                                    <button
-                                        key={i}
-                                        title={action.label}
-                                        className="flex h-12 w-12 items-center justify-center rounded-full bg-[#0d253f] border border-white/10 text-white hover:bg-[#ee162f] hover:border-[#ee162f] transition-colors duration-200"
-                                    >
-                                        {action.icon}
-                                    </button>
-                                ))}
-                            </div>
+                            <Btn movie={movie} />
                         </div>
 
                         {/* ---------- TAGLINE ---------- */}

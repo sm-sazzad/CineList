@@ -1,6 +1,7 @@
 import React, { use } from 'react';
 import PopularMovieCard from './PopularMovieCard';
 import { IMovie } from '../DataType';
+import Link from 'next/link';
 
 export const getTrendingMovies = async (day: string): Promise<IMovie[]> => {
     const res = await fetch(
@@ -53,15 +54,18 @@ const TrendingMovies = async () => {
                     </div>
 
                     {/* View All Button */}
-                    <button className='group relative px-5 py-2.5 rounded-full text-white font-medium border border-white/20 hover:border-transparent transition-all duration-300 overflow-hidden'>
-                        <span className='absolute inset-0 bg-linear-to-r from-[#ee162f] via-[#fd3148] to-[#fc6743] opacity-0 group-hover:opacity-100 transition-opacity duration-300'></span>
-                        <span className='relative flex items-center gap-2'>
-                            View All
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                            </svg>
-                        </span>
-                    </button>
+                    <Link href={"/trending-movies"}>
+                        <button className='group cursor-pointer relative px-5 py-2.5 rounded-full text-white font-medium border border-white/20 hover:border-transparent transition-all duration-300 overflow-hidden'>
+                            <span className='absolute inset-0 bg-linear-to-r from-[#ee162f] via-[#fd3148] to-[#fc6743] opacity-0 group-hover:opacity-100 transition-opacity duration-300'></span>
+                            <span className='relative flex items-center gap-2'>
+                                View All
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                </svg>
+                            </span>
+                        </button>
+                    </Link>
+
                 </div>
             </div>
 

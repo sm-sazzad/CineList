@@ -1,16 +1,34 @@
 "use client"
-import React, { createContext } from 'react';
+import React, { createContext, useState } from 'react';
+import { IMovie } from '../DataType';
 
-const MoviesContext = createContext(null);
 
-const MoviesProvider = () => {
+interface addType {
+    watchList: IMovie[],
+    setWatchList: React.Dispatch<React.SetStateAction<IMovie[]>>,
+    favourite: IMovie[],
+    setFavourite: React.Dispatch<React.SetStateAction<IMovie[]>>
+}
+export const MoviesContext = createContext<addType>({
+    watchList: [],
+    setWatchList: () => { },
+    favourite: [],
+    setFavourite: () => { }
+});
 
-    const
+const MoviesProvider = ({ children }: { children: React.ReactNode }) => {
+
+    const [watchList, setWatchList] = useState<IMovie[]>([]);
+    const [favourite, setFavourite] = useState<IMovie[]>([]);
+
+    const add: addType = {
+        watchList, setWatchList, favourite, setFavourite
+    }
 
     return (
-        <div>
-
-        </div>
+        <MoviesContext.Provider value={add}>
+            {children}
+        </MoviesContext.Provider>
     );
 };
 

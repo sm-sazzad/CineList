@@ -15,7 +15,7 @@ const Banner = () => {
                     <p className="mb-5 text-3xl">
                         Millions of movies, TV shows and people to discover. Explore now.
                     </p>
-                    <button className="btn btn-primary">Get Started</button>
+                    <button className="btn rounded-xl  bg-linear-to-r from-[#ee162f] via-[#fd3148] to-[#fc6743]">Get Started</button>
                 </div>
             </div>
         </div>

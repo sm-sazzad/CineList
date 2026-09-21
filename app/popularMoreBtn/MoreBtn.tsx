@@ -10,10 +10,22 @@ const MoreBtn = ({ Movies, type }: { Movies: IMovie[], type: string }) => {
     const [popular, setPopular] = useState<IMovie[]>(Movies);
     const [pages, setPages] = useState(30);
 
+    const [usedPage, setUsedPage] = useState<number[]>([1]);
+
     const handleMoreBtn = async () => {
-        let nextPage = pages + 1;
+        let nextPage = Math.floor(Math.random() * 500) + 1;
+        while (usedPage.includes(nextPage)) {
+            nextPage = Math.floor(Math.random() * 500) + 1;
+        }
+
+        setUsedPage(pre => [...pre, nextPage]);
 
         const res = await fetch(`/api/movies/popular-movies?page=${nextPage}`);
+
+        if (!res.ok) {
+            console.log("Request failed:", res.status);
+            return;
+        }
         const newMovies = await res.json();
 
         setPopular((previousMOvies: IMovie[]) => [...previousMOvies, ...newMovies]);

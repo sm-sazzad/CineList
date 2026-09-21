@@ -2,7 +2,7 @@ import { getMovies } from '../Components/Popular';
 import MoreBtn from '../popularMoreBtn/MoreBtn';
 
 const PopularMovie = async () => {
-    const popularMovies = await getMovies(30);
+    const popularMovies = await getMovies(Math.floor(Math.random() * 100) + 1);
     let type = "popular";
 
     return (

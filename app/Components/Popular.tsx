@@ -11,6 +11,7 @@ export const getMovies = async (page: number): Promise<IMovie[]> => {
     });
 
     const data = await res.json();
+    console.log(data)
     return data.results;
 };
 
@@ -37,12 +38,14 @@ const Popular = async () => {
                     </div>
 
                     {/* View All Button */}
-                    <button className='btn btn-outline btn-sm md:btn-md text-white border-white/30 hover:bg-[#fd3148] hover:text-slate-900 hover:border-orange-600 transition-all duration-300 group'>
-                        View All
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                        </svg>
-                    </button>
+                    <Link href={"/popular-movies"}>
+                        <button className='btn btn-outline btn-sm md:btn-md text-white border-white/30 hover:bg-[#fd3148] hover:text-slate-900 hover:border-orange-600 transition-all duration-300 group'>
+                            View All
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                            </svg>
+                        </button>
+                    </Link>
                 </div>
             </div>
 

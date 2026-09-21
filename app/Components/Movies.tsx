@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { IMovie } from '../DataType';
 import PopularMovieCard from './PopularMovieCard';
 
@@ -16,7 +17,7 @@ export const getMovies = async (page: number): Promise<IMovie[]> => {
 
 const Movies = async () => {
 
-    const Movies = await getMovies(1);
+    const Movies = await getMovies(Math.floor(Math.random() * 500) + 1);
 
     return (
         <div className='relative py-20 overflow-hidden'>
@@ -82,23 +83,25 @@ const Movies = async () => {
 
             {/* All Movies Button */}
             {Movies.length > 0 && (
-                <div className='relative flex justify-center mt-14'>
-                    <button className='group relative px-8 py-3 rounded-full text-white font-semibold overflow-hidden border border-transparent transition-all duration-300 hover:scale-105 shadow-lg shadow-[#ee162f]/20 hover:shadow-[#fc6743]/40'>
-                        {/* Animated Gradient Background */}
-                        <span className='absolute inset-0 bg-linear-to-r from-[#ee162f] via-[#fd3148] to-[#fc6743]'></span>
+                <Link href={"/all-movies"}>
+                    <div className='relative flex justify-center mt-14'>
+                        <button className='group relative px-8 py-3 cursor-pointer rounded-full text-white font-semibold overflow-hidden border border-transparent transition-all duration-300 hover:scale-105 shadow-lg shadow-[#ee162f]/20 hover:shadow-[#fc6743]/40'>
+                            {/* Animated Gradient Background */}
+                            <span className='absolute inset-0 bg-linear-to-r from-[#ee162f] via-[#fd3148] to-[#fc6743]'></span>
 
-                        {/* Shine Effect */}
-                        <span className='absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-linear-to-r from-transparent via-white/30 to-transparent'></span>
+                            {/* Shine Effect */}
+                            <span className='absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-linear-to-r from-transparent via-white/30 to-transparent'></span>
 
-                        {/* Button Content */}
-                        <span className='relative flex items-center gap-2'>
-                            All Movies
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                            </svg>
-                        </span>
-                    </button>
-                </div>
+                            {/* Button Content */}
+                            <span className='relative flex items-center gap-2'>
+                                All Movies
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                </svg>
+                            </span>
+                        </button>
+                    </div>
+                </Link>
             )}
         </div>
     );

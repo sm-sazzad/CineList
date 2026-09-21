@@ -2,16 +2,12 @@ import Image from 'next/image';
 import React from 'react';
 import navlogo from '../assets/CineListLogo.png'
 import Link from 'next/link';
+import WatchListBtn from '../watchlistBtn/WatchlistBtn';
+import NavLink from './NavLink';
 
 const Navbar = () => {
 
-    const link = <>
-        <Link href={"/"}><li>Home</li></Link>
-        <Link href={"/trending-movies"}><li>Trending Movies</li></Link>
-        <Link href={"/popular-movies"}><li>Popular Movies</li></Link>
-        <Link href={"/all-movies"}><li>All Movies</li></Link>
-        <Link href={"/contact"}><li>Contact</li></Link>
-    </>
+    const link = <NavLink />
 
 
     return (
@@ -33,17 +29,8 @@ const Navbar = () => {
                 </ul>
 
                 {/* Watchlist Button with Badge */}
-                <div className="indicator">
-                    <span className="indicator-item badge badge-secondary badge-sm font-bold">
-                        12
-                    </span>
-                    <button className="btn btn-outline btn-sm md:btn-md text-white border-white/40 hover:bg-white hover:text-slate-900 hover:border-white transition-all duration-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
-                        </svg>
-                        My Watchlist
-                    </button>
-                </div>
+                <WatchListBtn />
+
             </nav>
         </div>
     );
