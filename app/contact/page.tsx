@@ -97,7 +97,7 @@ const Page = () => {
                     alt=""
                     fill
                     priority
-                    className="object-cover object-[65%_center]"
+                    className="object-cover object-[73%_center] sm:object-[65%_center]"
                 />
 
                 {/* Horizontal gradient — lighter on mobile so right-side face stays visible */}

@@ -37,7 +37,7 @@ const Footer = () => {
                 </div>
 
                 {/* Contact */}
-                <div>
+                <div className='text-center md:text-start'>
                     <h2 className="mb-4 text-2xl font-bold bg-linear-to-r from-red-600 to-violet-600 bg-clip-text text-transparent">
                         Contact
                     </h2>

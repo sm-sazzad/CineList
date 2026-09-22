@@ -20,7 +20,7 @@ const Movies = async () => {
     const Movies = await getMovies(Math.floor(Math.random() * 500) + 1);
 
     return (
-        <div className='relative py-20 overflow-hidden'>
+        <div className='relative py-8 md:py-15 overflow-hidden'>
             {/* Ambient Background Glow */}
             <div className='absolute top-1/3 left-0 w-96 h-96 bg-[#ee162f] opacity-10 blur-[120px] rounded-full pointer-events-none'></div>
             <div className='absolute bottom-0 right-0 w-96 h-96 bg-[#fc6743] opacity-10 blur-[120px] rounded-full pointer-events-none'></div>

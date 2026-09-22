@@ -23,7 +23,7 @@ const TrendingMovies = async () => {
 
 
     return (
-        <div className='relative py-20 overflow-hidden'>
+        <div className='relative py-10 md:py-18 overflow-hidden'>
             {/* Decorative background glow */}
             <div className='absolute top-0 left-1/4 w-96 h-96 bg-[#ee162f] opacity-10 blur-[120px] rounded-full pointer-events-none'></div>
             <div className='absolute bottom-0 right-1/4 w-96 h-96 bg-[#fc6743] opacity-10 blur-[120px] rounded-full pointer-events-none'></div>

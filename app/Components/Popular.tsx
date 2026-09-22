@@ -18,7 +18,7 @@ export const getMovies = async (page: number): Promise<IMovie[]> => {
 const Popular = async () => {
     const movies = await getMovies(2);
     return (
-        <div className='relative py-20 w-[90%] mx-auto'>
+        <div className='relative py-8 md:py-18 w-[90%] mx-auto'>
             {/* Section Header */}
             <div className=' mb-12'>
                 <div className='flex items-end justify-between flex-wrap gap-4'>

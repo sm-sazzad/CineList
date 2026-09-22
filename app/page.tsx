@@ -11,7 +11,7 @@ import Movies from "./Components/Movies";
 export default async function Home() {
 
   return (
-    <div className="flex flex-col items-center justify-center bg-zinc-50 font-sans dark:bg-black">
+    <div className="flex flex-col items-center justify-center  font-sans bg-black">
       <Banner />
       <TrendingMovies />
       <Popular />

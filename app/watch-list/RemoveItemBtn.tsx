@@ -3,6 +3,7 @@
 import { useContext } from "react";
 import { MoviesContext } from "../Context/MoviesContext";
 import { IMovie } from "../DataType";
+import { toast } from "react-toastify";
 
 const RemoveItemBtn = ({ movie, btnType }: { movie: IMovie, btnType: "watchlist" | "favourite" }) => {
 
@@ -11,11 +12,14 @@ const RemoveItemBtn = ({ movie, btnType }: { movie: IMovie, btnType: "watchlist"
     const handleRemoveItemWatchlist = () => {
         const remainingItem = watchList.filter(item => item.id !== movie.id);
         setWatchList(remainingItem);
+        toast.info(`${movie.title} remove from your list`);
+
     }
 
     const handleRemoveItemFavourite = () => {
         const remainingItemFavourite = favourite.filter(item => item.id !== movie.id);
         setFavourite(remainingItemFavourite);
+        toast.info(`${movie.title} remove from your list`);
 
     }
 

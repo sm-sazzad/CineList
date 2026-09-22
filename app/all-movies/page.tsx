@@ -9,7 +9,7 @@ const AllMovies = async () => {
     let type = "movies";
 
     return (
-        <div className='w-[90%] mx-auto py-10'>
+        <div className='w-[90%] mx-auto py-5 md:py-10'>
             {/* Header Section */}
             <div className='flex items-center justify-between mb-8'>
                 <div>

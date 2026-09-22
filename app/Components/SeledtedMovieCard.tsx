@@ -74,7 +74,7 @@ const SeledtedMovieCard = ({ movie }: IMoviePropss) => {
                         </div>
 
                         {/* ---------- ACTIONS ROW (TMDB iconic) ---------- */}
-                        <div className="mt-8 flex items-center gap-6">
+                        <div className="mt-8 flex flex-col sm:flex-row items-center gap-6">
 
                             {/* Score Ring — TMDB style */}
                             {(() => {
@@ -288,19 +288,19 @@ const SeledtedMovieCard = ({ movie }: IMoviePropss) => {
 
                 {/* ---------- FOOTER BOTTOM BAR ---------- */}
                 <div className="mt-10 pt-6 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-gray-500">
-                    <p>
+                    {/* <p>
                         © {new Date().getFullYear()}{" "}
                         <span className="text-gray-300 font-medium">SM Sazzad</span>. All rights reserved.
                     </p>
 
-                    <p className="flex items-center gap-1.5">
+                    <p className="flex items-center gap-1.5 pb-3">
                         Built with
                         <span className="text-white font-semibold">Next.js</span>
                         <span className="text-gray-600">•</span>
                         <span className="text-[#38bdf8] font-semibold">Tailwind CSS</span>
                         <span className="text-gray-600">•</span>
                         <span className="text-[#ee162f]">♥</span>
-                    </p>
+                    </p> */}
                 </div>
             </div>
         </div>

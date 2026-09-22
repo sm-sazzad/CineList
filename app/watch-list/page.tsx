@@ -13,8 +13,8 @@ const WatchList = () => {
     const [btnType, setBtnType] = useState<"watchlist" | "favourite">("watchlist")
 
     return (
-        <div className='w-[90%] mx-auto'>
-            <div className="flex items-center justify-between border-b border-white/10 p-5 ">
+        <div className='w-[97%] sm:w-[90%] mx-auto'>
+            <div className="flex items-center justify-between border-b border-white/10 p-2 sm:p-5 ">
 
                 <h1 className="text-2xl font-bold text-white tracking-tight sm:text-4xl">
                     {
@@ -39,7 +39,7 @@ const WatchList = () => {
                 </div>
 
             </div>
-            <div className="grid grid-cols-5 gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 my-5 px-2 sm:px-0">
                 {
                     btnType === "watchlist" ? (watchList.length === 0 ? (
                         <div className="col-span-5 flex min-h-100 items-center justify-center">
