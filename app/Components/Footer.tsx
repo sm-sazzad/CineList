@@ -5,7 +5,7 @@ import NavLink from './NavLink';
 const Footer = () => {
     return (
         <div className="bg-black px-6 py-16 md:px-10 lg:px-20">
-            <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 border-b border-gray-800 pb-12 md:grid-cols-3">
+            <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 border-b border-gray-800 pb-12 md:grid-cols-3 justify-items-center">
 
                 {/* Brand */}
                 <div>
@@ -26,19 +26,19 @@ const Footer = () => {
                 </div>
 
                 {/* Quick Links */}
-                <div>
-                    <h2 className="mb-4 text-2xl font-bold bg-linear-to-r from-red-600 via-red-500 to-violet-600 bg-clip-text text-transparent">
+                <div className=' text-center'>
+                    <h2 className="mb-4 text-2xl font-bold bg-linear-to-r from-red-600 to-violet-600 bg-clip-text text-transparent">
                         Quick Links
                     </h2>
 
-                    <ul className="space-y-2 text-gray-400">
+                    <ul className="space-y-2 flex flex-col text-gray-400">
                         <NavLink />
                     </ul>
                 </div>
 
                 {/* Contact */}
                 <div>
-                    <h2 className="mb-4 text-2xl font-bold bg-linear-to-r from-red-600 via-red-500 to-violet-600 bg-clip-text text-transparent">
+                    <h2 className="mb-4 text-2xl font-bold bg-linear-to-r from-red-600 to-violet-600 bg-clip-text text-transparent">
                         Contact
                     </h2>
 
