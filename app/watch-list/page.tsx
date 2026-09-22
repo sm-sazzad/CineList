@@ -4,6 +4,8 @@ import { useContext, useState } from "react";
 import { MoviesContext } from "../Context/MoviesContext";
 import SelectedCard from "./SelectedCard";
 import { Span } from "next/dist/trace";
+import { HiH1 } from "react-icons/hi2";
+import Link from "next/link";
 
 const WatchList = () => {
 
@@ -39,8 +41,60 @@ const WatchList = () => {
             </div>
             <div className="grid grid-cols-5 gap-4">
                 {
-                    btnType === "watchlist" ? (watchList.map((movie, indx) => <SelectedCard key={indx} movie={movie} />)
-                    ) : (favourite.map((movie, indx) => <SelectedCard key={indx} movie={movie} />))
+                    btnType === "watchlist" ? (watchList.length === 0 ? (
+                        <div className="col-span-5 flex min-h-100 items-center justify-center">
+                            <div className="text-center max-w-md">
+                                {/* Icon */}
+                                <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-gray-800/80 border border-gray-700">
+                                    <span className="text-4xl">🎬</span>
+                                </div>
+
+                                {/* Text */}
+                                <h1 className="text-2xl font-bold text-white mb-2">
+                                    Your Watchlist is Empty
+                                </h1>
+
+                                <p className="text-gray-400 mb-7">
+                                    You haven't added any movies to your watchlist yet.
+                                    Start exploring and save your favorite movies here.
+                                </p>
+
+                                {/* Button */}
+                                <Link href="/all-movies">
+                                    <button className="cursor-pointer rounded-lg bg-red-600 px-6 py-3 font-semibold text-white transition duration-300 hover:bg-red-700 hover:shadow-lg hover:shadow-red-600/20">
+                                        + Add Movies
+                                    </button>
+                                </Link>
+                            </div>
+                        </div>
+                    ) : (watchList.map((movie, indx) => <SelectedCard key={indx} movie={movie} btnType={btnType} />)))
+                        : (favourite.length === 0 ? (
+                            <div className="col-span-5 flex min-h-100 items-center justify-center">
+                                <div className="text-center max-w-md">
+                                    {/* Icon */}
+                                    <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-gray-800/80 border border-gray-700">
+                                        <span className="text-4xl">🎬</span>
+                                    </div>
+
+                                    {/* Text */}
+                                    <h1 className="text-2xl font-bold text-white mb-2">
+                                        Your Favourite list is Empty
+                                    </h1>
+
+                                    <p className="text-gray-400 mb-7">
+                                        You haven't added any movies to your favourite list yet.
+                                        Start exploring and save your favorite movies here.
+                                    </p>
+
+                                    {/* Button */}
+                                    <Link href="/all-movies">
+                                        <button className="cursor-pointer rounded-lg bg-red-600 px-6 py-3 font-semibold text-white transition duration-300 hover:bg-red-700 hover:shadow-lg hover:shadow-red-600/20">
+                                            + Add Movies
+                                        </button>
+                                    </Link>
+                                </div>
+                            </div>
+                        ) : (favourite.map((movie, indx) => <SelectedCard key={indx} movie={movie} btnType={btnType} />)))
                 }
             </div>
         </div>

@@ -1,8 +1,9 @@
 import { IMovie } from '../DataType';
 import Image from 'next/image';
 import { IoMdStar } from 'react-icons/io';
+import RemoveItemBtn from './RemoveItemBtn';
 
-const SelectedCard = ({ movie }: { movie: IMovie }) => {
+const SelectedCard = ({ movie, btnType }: { movie: IMovie, btnType: "watchlist" | "favourite" }) => {
     return (
         <div className="group flex h-full flex-col overflow-hidden rounded-2xl bg-stone-900 text-white shadow-lg shadow-black/30 ring-1 ring-white/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/50">
 
@@ -68,11 +69,7 @@ const SelectedCard = ({ movie }: { movie: IMovie }) => {
                         Start Watching
                     </button>
 
-                    <button
-                        className="w-full cursor-pointer rounded-lg border border-white/10 bg-white/5 py-2 text-xs font-medium text-stone-400 transition-all duration-200 hover:border-red-500/30 hover:bg-red-500/10 hover:text-red-400"
-                    >
-                        Remove item
-                    </button>
+                    <RemoveItemBtn movie={movie} btnType={btnType} />
 
                 </div>
 

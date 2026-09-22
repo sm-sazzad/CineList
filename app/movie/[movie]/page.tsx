@@ -1,7 +1,4 @@
 import SeledtedMovieCard from '@/app/Components/SeledtedMovieCard';
-import { IMovie } from '@/app/DataType';
-import { getMovies } from '@/app/page';
-import React from 'react';
 
 // const getAllMovies = async (): Promise<IMovie[]> => {
 //     const res = await fetch(

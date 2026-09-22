@@ -49,13 +49,6 @@ const Movies = async () => {
                             Browse our complete library of films
                         </p>
                     </div>
-
-                    {/* Movie Count Badge */}
-                    <div className='px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm'>
-                        <span className='text-gray-300 text-sm'>
-                            <span className='text-[#fc6743] font-bold'>{Movies.length}</span> titles
-                        </span>
-                    </div>
                 </div>
             </div>
 

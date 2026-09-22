@@ -13,16 +13,24 @@ const Btn = ({ movie }: { movie: IMovie }) => {
     const isAvailableWatch = watchList.some(n => n.id === movie.id);
 
     const handleFavourite = () => {
-        !isAvailableFav ? setFavourite(pre => [...pre, movie]) : (
-            toast.warning(`${movie.original_title} already added`)
-        )
+        !isAvailableFav
+            ? (
+                setFavourite(pre => [...pre, movie]),
+                toast.success(`❤️ ${movie.title} added to your favourites!`)
+            )
+            : (
+                toast.info(`❤️ ${movie.title} is already in your favourites.`)
+            )
     }
 
-
     const handleBookmark = () => {
-        isAvailableWatch ? (toast.warning(`${movie.original_title} already added`)) :
-            (
-                setWatchList(pre => [...pre, movie]), toast.success(`${movie.title} added to your list`)
+        isAvailableWatch
+            ? (
+                toast.info(`🔖 ${movie.title} is already in your watchlist.`)
+            )
+            : (
+                setWatchList(pre => [...pre, movie]),
+                toast.success(`🔖 ${movie.title} added to your watchlist!`)
             )
     }
 
