@@ -2,7 +2,7 @@ import React from 'react';
 
 const Loading = () => {
     return (
-        <div className='min-h-[60vh] flex flex-col justify-center items-center gap-6'>
+        <div className='min-h-[60vh] flex flex-col justify-center items-center gap-6 bg-black scroll-mt-20'>
             {/* Animated gradient ring spinner */}
             <div className="relative w-20 h-20">
                 <div className="absolute inset-0 rounded-full border-4 border-base-300"></div>

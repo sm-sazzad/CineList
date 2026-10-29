@@ -1,36 +1,95 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🎬 CineList — Movie Discovery & Watchlist
 
-## Getting Started
+Discover movies, explore what's trending, and build your personal watchlist with CineList — a movie discovery application built with Next.js.
 
-First, run the development server:
+🌐 **Live Demo:** [CineList](https://cine-list-sm-sazzad.vercel.app/)
+
+## ✨ Features
+
+- 🔥 **Trending Movies** — Discover movies that are trending.
+- ⭐ **Popular Movies** — Explore popular movies.
+- 🎞️ **All Movies** — Browse the movie collection.
+- ❤️ **Personal Watchlist** — Add or remove movies from your watchlist.
+- 📽️ **Movie Details** — View movie titles, release dates, ratings, and posters.
+- 📱 **Responsive Design** — Enjoy a smooth browsing experience across devices.
+- 🔗 **Social Links** — Easily find the developer's social profiles and contact information.
+
+## 🛠️ Tech Stack
+
+- **Framework:** Next.js 14 (App Router)
+- **Styling:** Tailwind CSS
+- **Movie Data:** TMDB API
+- **Testing:** Jest & React Testing Library
+
+## 🚀 Getting Started
+
+Follow these steps to run CineList locally.
+
+### Prerequisites
+
+- Node.js installed on your computer
+- npm, yarn, pnpm, or bun
+- A TMDB API key
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/sm-sazzad/CineList.git
+cd CineList
+```
+
+### 2. Install Dependencies
+
+```bash
+npm install
+```
+
+### 3. Configure Environment Variables
+
+Create a `.env.local` file in the root directory and add your TMDB API credentials using the environment variable names expected by your project.
+
+```env
+TMDB_API_KEY=your_tmdb_api_key
+```
+
+> Note: Replace the example variable with the exact variable name used in your source code.
+
+Get your API credentials from [TMDB](https://www.themoviedb.org/).
+
+### 4. Start the Development Server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🎯 How to Use
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Visit CineList and explore trending, popular, and all movies.
+2. Select a movie to explore its details.
+3. Add movies to your personal watchlist.
+4. Visit **My Watchlist** to find your saved movies.
+5. Remove movies from your watchlist whenever you want.
 
-## Learn More
+## 🌐 Live Application
 
-To learn more about Next.js, take a look at the following resources:
+Experience CineList online:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**[https://cine-list-sm-sazzad.vercel.app/](https://cine-list-sm-sazzad.vercel.app/)**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 👨‍💻 Developer
 
-## Deploy on Vercel
+**Sheikh Md Sazzad Hossain**  
+Web Developer | Computer Science & Technology Student
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **GitHub:** [@sm-sazzad](https://github.com/sm-sazzad)
+- **LinkedIn:** [sm-sazzad](https://www.linkedin.com/in/sm-sazzad/)
+- **Instagram:** [@sazzad_hossain5758](https://www.instagram.com/sazzad_hossain5758/)
+- **Email:** [sazzadhossain5758@gmail.com](mailto:sazzadhossain5758@gmail.com)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+© 2026 CineList. All rights reserved.
+
+_Made with ❤️ for movie lovers._

@@ -13,7 +13,7 @@ const Haamburger = () => {
 
     return (<>
         <div>
-            <HiMenuAlt1 className='text-2xl cursor-pointer' onClick={() => setIsOpen(true)} />
+            <HiMenuAlt1 className='text-2xl cursor-pointer text-white' onClick={() => setIsOpen(true)} />
         </div>
 
     </>);

@@ -32,7 +32,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <ToastContainer />
           <Navbar />
 
-          <div>
+          <div className="bg-black">
             {children}
           </div>
           <Footer />
