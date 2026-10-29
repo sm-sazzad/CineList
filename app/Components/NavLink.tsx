@@ -11,7 +11,7 @@ const NavLink = () => {
             <Link href={"/trending-movies"} className='hover:scale-110 hover:text-red-500 duration-300'><li className={pathName === "/trending-movies" ? "bg-linear-to-r from-[#ee162f] via-[#fd3148] to-[#fc6743] origin-center bg-clip-text text-transparent scale-120 font-bold" : ""}>Trending Movies</li></Link>
             <Link href={"/popular-movies"} className='hover:scale-110 duration-300 hover:text-red-500'><li className={pathName === '/popular-movies' ? "bg-linear-to-r from-[#ee162f] via-[#fd3148] to-[#fc6743] bg-clip-text origin-center text-transparent scale-120 font-bold" : ""}>Popular Movies</li></Link>
             <Link href={"/all-movies"} className='hover:scale-110 duration-300 hover:text-red-500'><li className={pathName === '/all-movies' ? "bg-linear-to-r from-[#ee162f] via-[#fd3148] to-[#fc6743] bg-clip-text text-transparent scale-120 origin-center font-bold" : ""}>All Movies</li></Link>
-            <Link href={"/contact"} className='hover:scale-110 duration-300 hover:text-red-500'><li className={pathName === '/contact' ? "bg-linear-to-r from-[#ee162f] via-[#fd3148] to-[#fc6743] bg-clip-text text-transparent scale-120 origin-center font-bold" : ""}>Contact</li></Link>
+            <a href={"https://sazzad-dev.vercel.app/"} className='hover:scale-110 duration-300 hover:text-red-500'><li className={pathName === '/contact' ? "bg-linear-to-r from-[#ee162f] via-[#fd3148] to-[#fc6743] bg-clip-text text-transparent scale-120 origin-center font-bold" : ""}>Contact</li></a>
         </>
     );
 };

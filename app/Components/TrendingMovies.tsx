@@ -14,7 +14,7 @@ export const getTrendingMovies = async (day: string): Promise<IMovie[]> => {
     );
 
     const data = await res.json();
-    return data.results;
+    return data?.results || [];
 };
 
 

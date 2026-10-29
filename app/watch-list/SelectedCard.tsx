@@ -2,8 +2,13 @@ import { IMovie } from '../DataType';
 import Image from 'next/image';
 import { IoMdStar } from 'react-icons/io';
 import RemoveItemBtn from './RemoveItemBtn';
+import Link from 'next/link';
 
 const SelectedCard = ({ movie, btnType }: { movie: IMovie, btnType: "watchlist" | "favourite" }) => {
+    const movieName = movie.title
+        ? movie.title.toLowerCase().replace(/\s+/g, "-").replace(/[^\w-]/g, "")
+        : "details";
+
     return (
         <div className="group flex h-full flex-col overflow-hidden rounded-2xl bg-stone-900 text-white shadow-lg shadow-black/30 ring-1 ring-white/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/50">
 
@@ -31,7 +36,7 @@ const SelectedCard = ({ movie, btnType }: { movie: IMovie, btnType: "watchlist" 
                 {/* Rating */}
                 <p className="absolute left-2.5 top-2.5 flex items-center gap-1 rounded-full bg-black/70 px-2 py-0.5 text-[11px] font-semibold backdrop-blur-md">
                     <IoMdStar className="text-yellow-400" />
-                    {movie.vote_average.toFixed(1)}
+                    {movie.vote_average ? movie.vote_average.toFixed(1) : "N/A"}
                 </p>
 
             </div>
@@ -63,11 +68,13 @@ const SelectedCard = ({ movie, btnType }: { movie: IMovie, btnType: "watchlist" 
                 {/* Actions */}
                 <div className="mt-3 space-y-1.5">
 
-                    <button
-                        className="w-full cursor-pointer rounded-lg bg-[#ee162f] py-2 text-xs font-semibold text-white transition-all duration-200 hover:bg-red-700 hover:shadow-md hover:shadow-red-600/20"
-                    >
-                        Start Watching
-                    </button>
+                    <Link href={`/movie/${movie.id}-${movieName}`}>
+                        <button
+                            className="w-full cursor-pointer rounded-lg bg-[#ee162f] py-2 text-xs font-semibold text-white transition-all duration-200 hover:bg-red-700 hover:shadow-md hover:shadow-red-600/20"
+                        >
+                            Start Watching
+                        </button>
+                    </Link>
 
                     <RemoveItemBtn movie={movie} btnType={btnType} />
 

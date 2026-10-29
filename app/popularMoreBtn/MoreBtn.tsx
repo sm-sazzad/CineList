@@ -5,9 +5,9 @@ import { IMovie } from '../DataType';
 
 const MoreBtn = ({ Movies, type }: { Movies: IMovie[], type: string }) => {
 
-    const [allMovies, setAllMovies] = useState<IMovie[]>(Movies);
+    const [allMovies, setAllMovies] = useState<IMovie[]>(Movies || []);
     const [moviePages, setMoviePages] = useState(1);
-    const [popular, setPopular] = useState<IMovie[]>(Movies);
+    const [popular, setPopular] = useState<IMovie[]>(Movies || []);
     const [pages, setPages] = useState(30);
 
     const [usedPage, setUsedPage] = useState<number[]>([1]);
@@ -44,8 +44,8 @@ const MoreBtn = ({ Movies, type }: { Movies: IMovie[], type: string }) => {
     return (<>
         <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5'>
             {
-                type === "movies" ? (allMovies.map(movie => <PopularMovieCard key={movie.id} movie={movie} />))
-                    : (popular.map((movie: IMovie) => (<PopularMovieCard key={movie.id} movie={movie} />)))
+                type === "movies" ? (allMovies?.map(movie => <PopularMovieCard key={movie.id} movie={movie} />))
+                    : (popular?.map((movie: IMovie) => (<PopularMovieCard key={movie.id} movie={movie} />)))
             }
         </div>
         <div className='flex justify-center mt-10'>

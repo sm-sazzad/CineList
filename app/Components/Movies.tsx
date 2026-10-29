@@ -12,7 +12,7 @@ export const getMovies = async (page: number): Promise<IMovie[]> => {
     );
 
     const data = await res.json();
-    return data.results;
+    return data?.results || [];
 };
 
 const Movies = async () => {
