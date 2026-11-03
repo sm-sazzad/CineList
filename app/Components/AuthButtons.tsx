@@ -11,6 +11,7 @@ export const AuthButtons = () => {
   const router = useRouter();
   const { data: session, isPending } = useSession();
   const [isSigningOut, setIsSigningOut] = useState(false);
+  const [imgError, setImgError] = useState(false);
 
   const handleSignOut = async () => {
     setIsSigningOut(true);
@@ -28,9 +29,8 @@ export const AuthButtons = () => {
 
   if (isPending) {
     return (
-      <div className="hidden sm:flex items-center gap-3">
-        <div className="h-8 w-20 rounded-full bg-white/10 animate-pulse" />
-        <div className="h-8 w-20 rounded-full bg-white/10 animate-pulse" />
+      <div className="flex items-center gap-2">
+        <div className="h-9 sm:h-10 w-24 rounded-full bg-white/10 animate-pulse" />
       </div>
     );
   }
@@ -41,53 +41,55 @@ export const AuthButtons = () => {
     const initial = displayName.charAt(0).toUpperCase();
 
     return (
-      <div className="flex items-center gap-3">
-        {/* User Badge */}
-        <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 max-w-[170px]">
-          {user.image ? (
+      <div className="flex items-center gap-2 sm:gap-2.5">
+        {/* User Profile Badge (Standard h-9 sm:h-10 height) */}
+        <div
+          className="h-9 sm:h-10 flex items-center gap-2 px-2.5 sm:px-3 rounded-full bg-white/5 border border-white/10 hover:border-white/20 transition-all max-w-[120px] xl:max-w-[180px] shadow-sm shrink-0"
+          title={displayName}
+        >
+          {user.image && !imgError ? (
             // eslint-disable-next-line @next/next/no-img-element
             <img
               src={user.image}
               alt={displayName}
-              className="w-6 h-6 rounded-full object-cover border border-red-500/40"
+              referrerPolicy="no-referrer"
+              onError={() => setImgError(true)}
+              className="w-6 h-6 sm:w-7 sm:h-7 rounded-full object-cover ring-1 ring-red-500/50 shadow-sm shrink-0"
             />
           ) : (
-            <div className="w-6 h-6 rounded-full bg-linear-to-tr from-[#ee162f] to-[#fc6743] flex items-center justify-center text-white text-xs font-bold shrink-0">
+            <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-linear-to-tr from-[#ee162f] via-[#fd3148] to-[#fc6743] flex items-center justify-center text-white text-[11px] sm:text-xs font-bold shrink-0 shadow-sm">
               {initial}
             </div>
           )}
-          <span
-            className="text-white text-xs font-medium truncate"
-            title={displayName}
-          >
+          <span className="text-white text-xs sm:text-sm font-semibold truncate">
             {displayName}
           </span>
         </div>
 
-        {/* Sign Out Button */}
+        {/* Sign Out Button (Matching h-9 sm:h-10 height) */}
         <button
           onClick={handleSignOut}
           disabled={isSigningOut}
           title="Sign Out"
-          className="cursor-pointer group flex items-center gap-1.5 px-3 py-2.5 rounded-full border border-white/20 hover:border-red-500/60 bg-transparent hover:bg-red-500/10 text-gray-300 hover:text-white text-xs font-medium transition-all duration-300 disabled:opacity-60"
+          className="h-9 sm:h-10 cursor-pointer group flex items-center gap-1.5 px-3 xl:px-3.5 rounded-full bg-white/5 hover:bg-red-500/10 border border-white/10 hover:border-red-500/40 text-gray-300 hover:text-white text-xs sm:text-sm font-semibold transition-all duration-200 disabled:opacity-60 shadow-sm active:scale-95 shrink-0"
         >
           {isSigningOut ? (
             <span className="loading loading-spinner loading-xs text-red-500" />
           ) : (
             <HiOutlineLogout className="text-sm group-hover:text-red-400 transition-colors" />
           )}
-          <span className="hidden sm:inline">Sign Out</span>
+          <span className="hidden xl:inline">Sign Out</span>
         </button>
       </div>
     );
   }
 
   return (
-    <div className="flex items-center gap-2 sm:gap-3">
+    <div className="flex items-center gap-1.5 sm:gap-2">
       {/* Sign In */}
       <Link
         href="/sign-in"
-        className="px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-medium text-gray-200 hover:text-white hover:bg-white/5 transition-all duration-200"
+        className="h-9 sm:h-10 px-3 sm:px-4 rounded-full text-xs sm:text-sm font-semibold text-gray-300 hover:text-white hover:bg-white/5 border border-transparent hover:border-white/10 flex items-center justify-center transition-all duration-200"
       >
         Sign In
       </Link>
@@ -95,16 +97,11 @@ export const AuthButtons = () => {
       {/* Sign Up */}
       <Link
         href="/sign-up"
-        className="relative group overflow-hidden px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-semibold text-white transition-all duration-300 hover:scale-105 active:scale-95 shadow-md shadow-red-600/20"
+        className="h-9 sm:h-10 px-3.5 sm:px-4.5 rounded-full text-xs sm:text-sm font-bold text-white bg-linear-to-r from-[#ee162f] via-[#fd3148] to-[#fc6743] hover:from-[#fd3148] hover:to-[#fc6743] shadow-md shadow-red-600/30 flex items-center justify-center gap-1.5 transition-all duration-300 hover:scale-105 active:scale-95"
       >
-        <span className="absolute inset-0 bg-linear-to-r from-[#ee162f] via-[#fd3148] to-[#fc6743]" />
-        <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-linear-to-r from-transparent via-white/20 to-transparent" />
-        <span className="relative flex items-center gap-1.5">
-          <HiOutlineUser className="text-sm" />
-          <span>Sign Up</span>
-        </span>
+        <HiOutlineUser className="text-sm" />
+        <span>Sign Up</span>
       </Link>
     </div>
   );
 };
-

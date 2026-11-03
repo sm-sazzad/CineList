@@ -19,30 +19,30 @@ export const getMovies = async (page: number): Promise<IMovie[]> => {
 const Popular = async () => {
     const movies = await getMovies(2);
     return (
-        <div className='relative py-8 md:py-18 w-[90%] mx-auto'>
+        <div className='relative py-8 md:py-18 w-[92%] sm:w-[90%] mx-auto'>
             {/* Section Header */}
-            <div className=' mb-12'>
+            <div className='mb-8 sm:mb-12'>
                 <div className='flex items-end justify-between flex-wrap gap-4'>
                     <div>
                         <div className='flex items-center gap-3 mb-2'>
                             <span className='w-1.5 h-8 bg-linear-to-b from-[#ee162f] to-[#f46a47] rounded-full'></span>
-                            <span className='text-red-400 text-sm font-semibold uppercase tracking-widest'>
+                            <span className='text-red-400 text-xs sm:text-sm font-semibold uppercase tracking-widest'>
                                 Trending Now
                             </span>
                         </div>
-                        <h1 className='text-4xl md:text-5xl font-bold text-white'>
+                        <h1 className='text-3xl sm:text-4xl md:text-5xl font-bold text-white'>
                             Popular <span className='text-transparent bg-clip-text bg-linear-to-r from-[#fd3148] to-[#fc6743]'>Movies</span>
                         </h1>
-                        <p className='text-gray-400 mt-2 text-sm md:text-base'>
+                        <p className='text-gray-400 mt-2 text-xs sm:text-base'>
                             Discover the most-watched films right now
                         </p>
                     </div>
 
                     {/* View All Button */}
                     <Link href={"/popular-movies"}>
-                        <button className='btn btn-outline btn-sm md:btn-md text-white border-white/30 hover:bg-[#fd3148] hover:text-slate-900 hover:border-orange-600 transition-all duration-300 group'>
-                            View All
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <button className='px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm text-white font-medium border border-white/20 hover:border-transparent hover:bg-linear-to-r hover:from-[#ee162f] hover:to-[#fc6743] transition-all duration-300 group flex items-center gap-1.5 cursor-pointer shadow-sm'>
+                            <span>View All</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                             </svg>
                         </button>
@@ -51,7 +51,7 @@ const Popular = async () => {
             </div>
 
             {/* Movies Grid */}
-            <main className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6 mx-auto">
+            <main className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3.5 sm:gap-6 mx-auto">
                 {movies.map((movie) => (
                     <PopularMovieCard key={movie.id} movie={movie} />
                 ))}

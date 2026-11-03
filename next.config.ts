@@ -1,12 +1,18 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
   images: {
     remotePatterns: [
       {
         protocol: 'https',
         hostname: 'image.tmdb.org',
+        port: '',
+        pathname: '**',
+        search: '',
+      },
+      {
+        protocol: 'https',
+        hostname: '*.googleusercontent.com',
         port: '',
         pathname: '**',
         search: '',

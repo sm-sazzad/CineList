@@ -27,26 +27,26 @@ const Movies = async () => {
             <div className='absolute bottom-0 right-0 w-96 h-96 bg-[#fc6743] opacity-10 blur-[120px] rounded-full pointer-events-none'></div>
 
             {/* Section Header */}
-            <div className='relative w-[90%] mx-auto mb-12'>
+            <div className='relative w-[92%] sm:w-[90%] mx-auto mb-8 sm:mb-12'>
                 <div className='flex items-end justify-between flex-wrap gap-4'>
                     <div>
                         {/* Eyebrow Label */}
                         <div className='flex items-center gap-3 mb-2'>
                             <span className='w-1.5 h-8 bg-linear-to-b from-[#ee162f] to-[#fc6743] rounded-full'></span>
-                            <span className='text-sm font-semibold uppercase tracking-widest bg-linear-to-r from-[#ee162f] to-[#f46a47] bg-clip-text text-transparent'>
+                            <span className='text-xs sm:text-sm font-semibold uppercase tracking-widest bg-linear-to-r from-[#ee162f] to-[#f46a47] bg-clip-text text-transparent'>
                                 Explore Collection
                             </span>
                         </div>
 
                         {/* Main Heading */}
-                        <h1 className='text-4xl md:text-5xl font-bold text-white'>
+                        <h1 className='text-3xl sm:text-4xl md:text-5xl font-bold text-white'>
                             All{' '}
                             <span className='bg-linear-to-r from-[#ee162f] via-[#fd3148] to-[#fc6743] bg-clip-text text-transparent'>
                                 Movies
                             </span>
                         </h1>
 
-                        <p className='text-gray-400 mt-2 text-sm md:text-base'>
+                        <p className='text-gray-400 mt-2 text-xs sm:text-base'>
                             Browse our complete library of films
                         </p>
                     </div>
@@ -54,9 +54,9 @@ const Movies = async () => {
             </div>
 
             {/* Movies Grid */}
-            <div className='relative w-[90%] mx-auto'>
+            <div className='relative w-[92%] sm:w-[90%] mx-auto'>
                 {Movies.length > 0 ? (
-                    <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6'>
+                    <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3.5 sm:gap-6'>
                         {Movies.map(movie => (
                             <PopularMovieCard key={movie.id} movie={movie} />
                         ))}
