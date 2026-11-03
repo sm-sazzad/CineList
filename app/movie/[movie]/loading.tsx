@@ -65,7 +65,28 @@ const MovieDetailsLoading = () => {
 
                 </div>
 
-                {/* Bottom Stats Grid Skeleton */}
+                {/* Cast Carousel Skeleton */}
+                <div className="mt-16 border-t border-white/10 pt-10">
+                    <div className="h-6 w-48 rounded bg-white/10 mb-6" />
+                    <div className="flex items-center gap-4 overflow-hidden pb-4">
+                        {Array.from({ length: 6 }).map((_, i) => (
+                            <div
+                                key={i}
+                                className="relative shrink-0 w-32 sm:w-40 md:w-44 rounded-2xl bg-stone-900/70 border border-white/10 overflow-hidden"
+                            >
+                                <div className="aspect-[3/4] w-full bg-stone-950 relative overflow-hidden">
+                                    <Shimmer />
+                                </div>
+                                <div className="p-3 space-y-2">
+                                    <div className="h-3.5 w-3/4 rounded bg-white/10" />
+                                    <div className="h-2.5 w-1/2 rounded bg-white/5" />
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
+                {/* Stats Grid Skeleton */}
                 <div className="mt-16 border-t border-white/10 pt-10">
                     <div className="h-6 w-52 rounded bg-white/10 mb-6" />
                     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-6">
@@ -78,10 +99,30 @@ const MovieDetailsLoading = () => {
                         ))}
                     </div>
                 </div>
+
+                {/* Recommendations Grid Skeleton */}
+                <div className="mt-16 border-t border-white/10 pt-10">
+                    <div className="h-6 w-56 rounded bg-white/10 mb-6" />
+                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-6">
+                        {Array.from({ length: 5 }).map((_, i) => (
+                            <div
+                                key={i}
+                                className="relative rounded-2xl bg-stone-900/70 border border-white/10 overflow-hidden"
+                            >
+                                <div className="aspect-[2/3] w-full bg-stone-950 relative overflow-hidden">
+                                    <Shimmer />
+                                </div>
+                                <div className="p-3.5 space-y-2">
+                                    <div className="h-4 w-3/4 rounded bg-white/10" />
+                                    <div className="h-3 w-1/2 rounded bg-white/5" />
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
             </div>
         </div>
     );
 };
 
 export default MovieDetailsLoading;
-

@@ -1,13 +1,17 @@
-import { IMovie } from '../DataType';
+import { IMovie, ICredits } from '../DataType';
 import { FaEnvelope, FaFacebook, FaGithub, FaLinkedin, FaGlobe } from 'react-icons/fa';
 import Btn from './favouriteBtn/Btn';
 import BackButton from './BackButton';
+import MovieCast from './MovieCast';
+import MovieRecommendations from './MovieRecommendations';
 
 interface IMoviePropss {
     movie: IMovie;
+    credits?: ICredits;
+    recommendations?: IMovie[];
 }
 
-const SeledtedMovieCard = ({ movie }: IMoviePropss) => {
+const SeledtedMovieCard = ({ movie, credits, recommendations = [] }: IMoviePropss) => {
     const percentage = Math.round((movie.vote_average || 0) * 10);
     const releaseYear = movie.release_date?.slice(0, 4) || '';
     const runtimeHours = movie.runtime ? Math.floor(movie.runtime / 60) : 0;
@@ -88,14 +92,14 @@ const SeledtedMovieCard = ({ movie }: IMoviePropss) => {
                                     </span>
                                 </>
                             )}
-                            {movie.runtime > 0 && (
+                            {movie.runtime && movie.runtime > 0 ? (
                                 <>
                                     <span className="text-gray-600">•</span>
                                     <span className="text-gray-300">
                                         {runtimeHours}h {runtimeMinutes}m
                                     </span>
                                 </>
-                            )}
+                            ) : null}
                         </div>
 
                         {/* ---------- ACTIONS ROW & SCORE ---------- */}
@@ -166,6 +170,9 @@ const SeledtedMovieCard = ({ movie }: IMoviePropss) => {
                     </div>
                 </div>
 
+                {/* ================= CAST & CREW ================= */}
+                <MovieCast cast={credits?.cast} crew={credits?.crew} />
+
                 {/* ================= STATS & FINANCIALS ================= */}
                 <div className="mt-16 border-t border-white/10 pt-10">
                     <h3 className="text-xl sm:text-2xl font-bold mb-6 text-white flex items-center gap-2">
@@ -193,6 +200,9 @@ const SeledtedMovieCard = ({ movie }: IMoviePropss) => {
                         ))}
                     </div>
                 </div>
+
+                {/* ================= RECOMMENDATIONS ================= */}
+                <MovieRecommendations movies={recommendations} currentMovieId={movie.id} />
 
                 {/* ================= DEVELOPER IDENTITY ================= */}
                 <div className="mt-20 border-t border-white/10 pt-10">
