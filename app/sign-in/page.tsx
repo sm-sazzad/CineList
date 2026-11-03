@@ -4,7 +4,7 @@ import React, { useState, Suspense } from "react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { authClient } from "@/lib/auth-client";
-import { toast } from "react-toastify";
+import { toast } from "@/app/Components/Toast/Toast";
 import {
   HiOutlineMail,
   HiOutlineLockClosed,

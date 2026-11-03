@@ -3,7 +3,7 @@
 import React, { createContext, useEffect, useState, useCallback } from "react";
 import { IMovie } from "../DataType";
 import { useSession } from "@/lib/auth-client";
-import { toast } from "react-toastify";
+import { toast } from "@/app/Components/Toast/Toast";
 
 export interface addType {
   watchList: IMovie[];

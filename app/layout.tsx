@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import "react-toastify/dist/ReactToastify.css";
 import Navbar from "./Components/Navbar";
 import MoviesProvider from "./Context/MoviesContext";
-import { ToastContainer } from "react-toastify";
+import { ToastContainer } from "./Components/Toast/Toast";
 import Footer from "./Components/Footer";
 import ScrollProgressBar from "./Components/ScrollProgressBar";
 
@@ -32,18 +31,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="min-h-full flex flex-col bg-black overflow-x-hidden">
         <ScrollProgressBar />
         <MoviesProvider>
-          <ToastContainer
-            position="top-right"
-            autoClose={4000}
-            hideProgressBar={false}
-            newestOnTop
-            closeOnClick
-            rtl={false}
-            pauseOnFocusLoss
-            draggable
-            pauseOnHover
-            theme="dark"
-          />
+          <ToastContainer />
           <Navbar />
 
           <div className="bg-black">

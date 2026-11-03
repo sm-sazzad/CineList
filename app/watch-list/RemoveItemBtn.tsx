@@ -3,7 +3,7 @@
 import { useContext } from "react";
 import { MoviesContext } from "../Context/MoviesContext";
 import { IMovie } from "../DataType";
-import { toast } from "react-toastify";
+import { toast } from "@/app/Components/Toast/Toast";
 
 const RemoveItemBtn = ({
     movie,

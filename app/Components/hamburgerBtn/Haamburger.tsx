@@ -7,7 +7,7 @@ import { RxCross2 } from 'react-icons/rx';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useSession, signOut } from '@/lib/auth-client';
-import { toast } from 'react-toastify';
+import { toast } from '@/app/Components/Toast/Toast';
 import { HiOutlineLogout, HiOutlineUser, HiOutlineBookmark } from 'react-icons/hi';
 
 const Haamburger = () => {

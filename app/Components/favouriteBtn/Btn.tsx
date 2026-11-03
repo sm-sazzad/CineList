@@ -5,7 +5,7 @@ import { IMovie } from '@/app/DataType';
 import { useContext, useState } from 'react';
 import { FaBookmark, FaPlay, FaShare } from 'react-icons/fa';
 import { MdOutlineFavorite } from 'react-icons/md';
-import { toast } from 'react-toastify';
+import { toast } from '@/app/Components/Toast/Toast';
 import TrailerModal from '../TrailerModal';
 
 const Btn = ({ movie }: { movie: IMovie }) => {

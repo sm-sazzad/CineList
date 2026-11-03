@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useSession, signOut } from "@/lib/auth-client";
-import { toast } from "react-toastify";
+import { toast } from "@/app/Components/Toast/Toast";
 import { HiOutlineLogout, HiOutlineUser } from "react-icons/hi";
 
 export const AuthButtons = () => {
