@@ -1,6 +1,8 @@
 import { getMovies } from '../Components/Popular';
 import MoreBtn from '../popularMoreBtn/MoreBtn';
 
+export const dynamic = 'force-dynamic';
+
 const PopularMovie = async () => {
     const popularMovies = await getMovies(Math.floor(Math.random() * 100) + 1);
     let type = "popular";

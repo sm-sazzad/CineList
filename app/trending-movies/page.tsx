@@ -2,6 +2,8 @@ import React from 'react';
 import { getTrendingMovies } from '../Components/TrendingMovies';
 import PopularMovieCard from '../Components/PopularMovieCard';
 
+export const dynamic = 'force-dynamic';
+
 const TrendingMovies = async () => {
 
     const trend = ["week", "day"];

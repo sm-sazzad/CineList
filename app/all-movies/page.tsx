@@ -3,6 +3,8 @@ import { getMovies } from '../Components/Movies';
 import PopularMovieCard from '../Components/PopularMovieCard';
 import MoreBtn from '../popularMoreBtn/MoreBtn';
 
+export const dynamic = 'force-dynamic';
+
 const AllMovies = async () => {
 
     const allMovies = await getMovies(1)

@@ -17,6 +17,7 @@ const DynamicPage = async ({ params }: { params: Promise<{ movie: string }> }) =
             headers: {
                 Authorization: `Bearer ${process.env.TMDB_ACCESS_TOKEN}`,
             },
+            cache: 'no-store',
         }
     );
     const data = await findMovie.json();

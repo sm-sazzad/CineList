@@ -20,7 +20,9 @@ const MoreBtn = ({ Movies, type }: { Movies: IMovie[], type: string }) => {
 
         setUsedPage(pre => [...pre, nextPage]);
 
-        const res = await fetch(`/api/movies/popular-movies?page=${nextPage}`);
+        const res = await fetch(`/api/movies/popular-movies?page=${nextPage}`, {
+            cache: 'no-store',
+        });
 
         if (!res.ok) {
             console.log("Request failed:", res.status);
@@ -35,7 +37,9 @@ const MoreBtn = ({ Movies, type }: { Movies: IMovie[], type: string }) => {
     const handleMovie = async () => {
         let nextPage = moviePages + 1;
 
-        const res = await fetch(`/api/movies/all-movies?page=${nextPage}`)
+        const res = await fetch(`/api/movies/all-movies?page=${nextPage}`, {
+            cache: 'no-store',
+        });
         const newMovies = await res.json();
         setAllMovies(pre => [...pre, ...newMovies]);
         setMoviePages(nextPage);

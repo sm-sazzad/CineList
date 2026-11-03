@@ -10,6 +10,7 @@ export const getTrendingMovies = async (day: string): Promise<IMovie[]> => {
             headers: {
                 Authorization: `Bearer ${process.env.TMDB_ACCESS_TOKEN}`,
             },
+            cache: 'no-store',
         }
     );
 

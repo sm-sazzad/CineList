@@ -8,6 +8,8 @@ import Movies from "./Components/Movies";
 
 
 
+export const dynamic = 'force-dynamic';
+
 export default async function Home() {
 
   return (

@@ -21,15 +21,15 @@ export interface addType {
 
 export const MoviesContext = createContext<addType>({
   watchList: [],
-  setWatchList: () => {},
+  setWatchList: () => { },
   favourite: [],
-  setFavourite: () => {},
+  setFavourite: () => { },
   addToWatchList: async () => false,
   removeFromWatchList: async () => false,
   addToFavourite: async () => false,
   removeFromFavourite: async () => false,
   isOpen: false,
-  setIsOpen: () => {},
+  setIsOpen: () => { },
   isLoading: false,
 });
 
