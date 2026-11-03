@@ -4,6 +4,8 @@ import { headers } from "next/headers";
 import { NextResponse } from "next/server";
 import { IMovie } from "@/app/DataType";
 
+export const dynamic = "force-dynamic";
+
 interface SavedMoviesDocument {
   userId: string;
   watchList: IMovie[];
@@ -128,4 +130,3 @@ export async function POST(request: Request) {
     );
   }
 }
-
