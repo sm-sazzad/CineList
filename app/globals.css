@@ -39,3 +39,51 @@ body {
 .animate-shimmer {
   animation: shimmer 2s infinite ease-in-out;
 }
+
+/* ================= CUSTOM PREMIUM CINEMA SCROLLBAR ================= */
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+}
+
+/* Webkit (Chrome, Edge, Safari, Opera, Brave) */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 9999px;
+  border: 2px solid #000000;
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #ee162f 0%, #fd3148 50%, #fc6743 100%);
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 10px rgba(238, 22, 47, 0.6);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: linear-gradient(180deg, #fd3148 0%, #fc6743 100%);
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+/* Hide scrollbar utility for specific scrollable rows */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
